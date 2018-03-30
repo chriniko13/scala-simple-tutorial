@@ -33,10 +33,17 @@ object App {
       new Example26, //Compound Types
       new Example27, //Implicit Parameters
       new Example28, //Implicit Conversions
-      new Example29
+      new Example29, //Polymorphic Methods
+      new Example30, //Type Inference
+      new Example31, //Operators
+      new Example32, //By-Name parameters
+      new Example33, //Annotations
+      new Example34, //Default Parameter values
+      new Example35, //Named arguments
+      new Example36, //Packages and imports
     )
 
-    val exampleToRun = 28
+    val exampleToRun = 36
 
     require(exampleToRun >= 1 && exampleToRun <= examples.length)
 
