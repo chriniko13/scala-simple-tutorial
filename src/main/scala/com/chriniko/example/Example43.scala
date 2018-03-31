@@ -133,7 +133,7 @@ class Example43 extends Example {
           case err: NotFound => println("database not found error")
           case err: CouldNotConnect => println("database could not connect error")
           case err: CouldNotAuthenticate => println("database could not authenticate error")
-          //case err: UnknownError => println("database not found error")
+          case err: UnknownError => println(s"unknown error occurred, error == ${err.t.getMessage} , stacktracec == ${err.s}")
 
         }
       }
