@@ -46,9 +46,12 @@ object App {
       new Example39, //Hallmarks of Functional Programming
       new Example40, //Map Shuffle Reduce Pattern
       new Example41, //Companion Objects
+      new Example42, //Concurrency and Synchronization
+      new Example43, //Designing Fail Fast Error Handling
+      new Example44, //Robust Error Handling in Scala
     )
 
-    val exampleToRun = 41
+    val exampleToRun = 44
 
     require(exampleToRun >= 1 && exampleToRun <= examples.length)
 
