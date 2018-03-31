@@ -20,6 +20,12 @@ class Example44 extends Example {
     println("\n#AuthenticationService Test#")
     val result2 = AuthenticationService.login("chriniko", "12345")
     println(result2)
+
+
+    // 3, usage of HttpService
+    println("\n#HttpService Test#")
+    val result3 = HttpService.login("chriniko", "1234")
+    println(result3)
   }
 
   //---------------------TYPES------------------------------------------------------------------------------------------
@@ -30,7 +36,25 @@ class Example44 extends Example {
   //----------------------HTTP------------------------------------------------------------------------------------------
   object HttpService {
 
-    //TODO add implementation...
+    //ADT
+    sealed trait HttpError extends Exception
+
+    final case class CouldNotAuthenticate(username: Username) extends HttpError
+
+    final case class InternalError() extends HttpError
+
+    def login(username: Username, password: Password): \/[HttpError, User] = {
+
+      val r: \/[HttpError, User] =
+        AuthenticationService.login(username, password).leftMap {
+
+          case AuthenticationService.NotFound(_username) => CouldNotAuthenticate(_username)
+          case AuthenticationService.BadPassword(_username, _) => CouldNotAuthenticate(_username)
+          case AuthenticationService.DatabaseError(_) => InternalError()
+        }
+
+      r
+    }
   }
 
   //----------------------AUTHENTICATION--------------------------------------------------------------------------------
