@@ -53,12 +53,27 @@ class Example32 extends Example {
     myAssert(() => 5 > 3)
 
 
-    def myAssertWithName(p: => Boolean) /* a by-name parameter */: Unit = {
+    def myAssertWithName(p: => Boolean) /* a by-name parameter */ : Unit = {
       if (assertionsEnabled && !p)
         throw new AssertionError()
     }
 
     myAssertWithName(5 > 3)
+
+    // 4
+    println
+
+    def withinTx[T](block: => T) = {
+      println("Begin TX")
+      val res = block
+      println("End TX")
+      res
+    }
+
+    val r: Unit = withinTx {
+      println("Performing Operation")
+    }
+    println(r)
   }
 
 }

@@ -41,9 +41,14 @@ object App {
       new Example34, //Default Parameter values
       new Example35, //Named arguments
       new Example36, //Packages and imports
+      new Example37, //Abstract Types
+      new Example38, //Self Types
+      new Example39, //Hallmarks of Functional Programming
+      new Example40, //Map Shuffle Reduce Pattern
+      new Example41, //Companion Objects
     )
 
-    val exampleToRun = 36
+    val exampleToRun = 41
 
     require(exampleToRun >= 1 && exampleToRun <= examples.length)
 
