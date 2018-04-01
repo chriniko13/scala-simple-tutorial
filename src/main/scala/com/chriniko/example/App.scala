@@ -49,9 +49,11 @@ object App {
       new Example42, //Concurrency and Synchronization
       new Example43, //Designing Fail Fast Error Handling
       new Example44, //Robust Error Handling in Scala
+      new Example45, //Easing Into Functional Error Handling in Scala
+      new Example46, //Algebraic Data Types
     )
 
-    val exampleToRun = 44
+    val exampleToRun = 46
 
     require(exampleToRun >= 1 && exampleToRun <= examples.length)
 
