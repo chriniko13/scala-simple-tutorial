@@ -160,8 +160,6 @@ class Example46 extends Example {
 
     println
     println(findEvenNum(4))
-
-
   }
 
 

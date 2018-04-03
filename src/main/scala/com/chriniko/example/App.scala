@@ -50,10 +50,11 @@ object App {
       new Example43, //Designing Fail Fast Error Handling
       new Example44, //Robust Error Handling in Scala
       new Example45, //Easing Into Functional Error Handling in Scala
-      new Example46, //Algebraic Data Types
+      new Example46, //Algebraic Data Types & Structural Recursion
+      new Example47, //Uniting Church and State: FP and OO Together
     )
 
-    val exampleToRun = 46
+    val exampleToRun = 47
 
     require(exampleToRun >= 1 && exampleToRun <= examples.length)
 
