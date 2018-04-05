@@ -51,7 +51,7 @@ object App {
       new Example44, //Robust Error Handling in Scala
       new Example45, //Easing Into Functional Error Handling in Scala
       new Example46, //Algebraic Data Types & Structural Recursion
-      new Example47, //Uniting Church and State: FP and OO Together
+      new Example47, //Uniting Church and State: FP and OO Together (One of the best in order to understand in depth some concepts)
     )
 
     val exampleToRun = 47

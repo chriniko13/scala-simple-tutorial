@@ -70,6 +70,7 @@ class Example47 extends Example {
 
     println
     println(expression(PrettyPrinter))
+    println(expression(BigDecimalCalc))
   }
 
 
@@ -95,7 +96,7 @@ class Example47 extends Example {
     def cos(a: Double): Double = Math.cos(a)
   }
 
-  //---------------------------------FP APPROACH-----------------------------------------------------
+  //---------------------------------FP APPROACH(FREE STRUCTURES)------------------------------------------------------------
   // Represent operations as data (ADT)
   // Cannot easily add new operators (case classes)
   // Can easily add new actions (interpreters)
@@ -157,8 +158,22 @@ class Example47 extends Example {
     def divide(a: String, b: String): String = s"($a / $b)"
   }
 
+  object BigDecimalCalc extends Calculator2[BigDecimal] {
+    override def literal(v: Double): BigDecimal = BigDecimal(v)
+
+    override def add(a: BigDecimal, b: BigDecimal): BigDecimal = a + b
+
+    override def subtract(a: BigDecimal, b: BigDecimal): BigDecimal = a - b
+
+    override def multiply(a: BigDecimal, b: BigDecimal): BigDecimal = a * b
+
+    override def divide(a: BigDecimal, b: BigDecimal): BigDecimal = a / b
+  }
+
   //Hint: When we use, delay choice of action.
-  def expression[A](calculator: Calculator2[A]): A = {
+  //This separates operations from actions style
+  // data types a la carte  --->  church encoding ---> tagless final style
+  def expression[A](calculator: Calculator2[A]): A = { // this is a tagless final style.
     import calculator._
 
     add(literal(1.0),
