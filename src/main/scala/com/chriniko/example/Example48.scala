@@ -90,7 +90,7 @@ class Example48 extends Example {
     // init friendsPeopleDb
     (1 to peopleNoOfRecords).foreach(idx => {
 
-      // pick randomly two people and make them friends of the one who is under processing.
+      // pick randomly one person and make them friends
       var personIdxToMakeFriend = -1
       do {
         personIdxToMakeFriend = Random.nextInt(peopleNoOfRecords) + 1
